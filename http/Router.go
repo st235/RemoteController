@@ -3,7 +3,6 @@ package http
 import (
 	"net/http"
 	"remotecontrol/ip"
-	"fmt"
 )
 
 type Router struct {}
@@ -17,9 +16,14 @@ func (r *Router) Add(path string, handler func(http.ResponseWriter, *http.Reques
 	return r
 }
 
-func (r *Router) Serve(port string) (*Router) {
+func (r *Router) Handle(path string, handler http.Handler) (*Router) {
+	http.Handle(path, handler)
+	return r
+}
+
+func (r *Router) Serve(port string, callback func(ipAddr string)) (*Router) {
 	ipaddr := ip.GetMachineIp(port)
-	fmt.Println("serve: " + ipaddr)
+	callback(ipaddr)
 
 	http.ListenAndServe(port, nil)
 	return r
