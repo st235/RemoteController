@@ -16,7 +16,7 @@ func main() {
 	router := rtr.NewInstance()
 
 	if _, err := os.Stat(PUBLIC_DIR); os.IsNotExist(err) {
-		fmt.Println("Directory created")
+		fmt.Println("Public directory created")
 		os.Mkdir(PUBLIC_DIR, os.ModePerm)
 	}
 
