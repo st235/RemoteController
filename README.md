@@ -20,7 +20,7 @@ ROUTE: /right
 RESPONSE: right
 ```
 
-### License
+## License
 
 MIT License
 
