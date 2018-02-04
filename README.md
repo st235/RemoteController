@@ -7,18 +7,20 @@ A simple way to remotely manage your computer.
 ### Keyboard
 All routes in keyboard directory starts with **/keyboard**
 
+{key} - is a key placeholder.
+
 __Keys__
 ```
 METHOD: Get
-ROUTE: /left
-RESPONSE: left
+ROUTE: /{key}
+RESPONSE: {key}
 ```
 
-```
-METHOD: Get
-ROUTE: /right
-RESPONSE: right
-```
+#### Supported keys list
+- left
+- right
+- up
+- down
 
 ## License
 
