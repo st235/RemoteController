@@ -4,12 +4,18 @@ import (
 	"github.com/go-vgo/robotgo"
 	router "remotecontrol/http"
 	"net/http"
+	"fmt"
 )
 
+var keys = []string{"left", "right", "up", "down", "space"}
+
 func RegisterKeyboardController(router *router.Router) (*router.Router) {
-	return router.
-		Add("/keyboard/left", obtainSingleKeyPressHandler("left")).
-		Add("/keyboard/right", obtainSingleKeyPressHandler("right"))
+    for _, key := range keys {
+    	router.
+			Add(fmt.Sprintf("/keyboard/%s", key), obtainSingleKeyPressHandler(key))
+    }
+
+	return router
 }
 
 func obtainSingleKeyPressHandler(key string) (func(w http.ResponseWriter, r *http.Request)) {
