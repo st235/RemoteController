@@ -2,6 +2,8 @@
 
 A simple way to remotely manage your computer.
 
+<img src="https://raw.githubusercontent.com/st235/RemoteController/master/images/screen.jpg" width="270" height="480">
+
 ## Supported functionality:
 
 ### Keyboard
@@ -12,7 +14,7 @@ All routes in keyboard directory starts with **/keyboard**
 __Keys__
 ```
 METHOD: Get
-ROUTE: /{key}
+ROUTE: /keyboard/{key}
 RESPONSE: {key}
 ```
 
@@ -21,6 +23,7 @@ RESPONSE: {key}
 - right
 - up
 - down
+- a-z
 
 ## License
 
