@@ -1,23 +1,46 @@
 <html>
-<head>
-<title>Hello</title>
-</head>
+  <head>
+    <title>Remote Controller</title>
+    <link rel="stylesheet" href="./arrows.css" type="text/css"></link>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css"></link>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <style>
+      .control {
+        min-height: 33.3333333%;
+      }
+    </style>
+  </head>
 <body>
-<button id="left">Left</button>
-<button id="right">Right</button>
-<button id="up">Up</button>
-<button id="down">Down</button>
-<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  <div class="container">
+    <div class="control row
+                center-lg center-md center-sm center-xs
+                middle-lg middle-md middle-sm middle-xs
+                col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a id="up" class="arrow arrow-top"></a>
+    </div>
+    <div class="control row
+                between-lg between-md between-sm between-xs
+                middle-lg middle-md middle-sm middle-xs">
+      <a id="left" class="arrow arrow-left"></a>
+      <a id="right" class="arrow arrow-right"></a>
+    </div>
+    <div class="control row
+                center-lg center-md center-sm center-xs
+                middle-lg middle-md middle-sm middle-xs
+                col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a id="down" class="arrow arrow-bottom"></a>
+    </div>
+  </div>
 
 <script>
-$("button").click(function() {
-var id = $(this).attr('id');
-$.get(window.location.origin + "/keyboard/" + id , function(data) {
-console.log(data);
-});
-});
+  $(".arrow").click(function(e) {
+    var id = $(this).attr('id');
+    $.get(window.location.origin + "/keyboard/" + id , function(data) {
+    console.log(data);
+    });
+  });
 </script>	
 </html>
